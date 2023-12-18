@@ -14,7 +14,19 @@ spec:
     env:
     - name: name
       value: champ
-
+    - name: app-name
+      valueFrom:
+        configMapKeyRef:
+          name: webapp-config-map
+          key: APP_NAME
+    volumeMounts:
+    - name: cm-volume
+      mountPath: "/config"
+      readOnly: true
   dnsPolicy: ClusterFirst
   restartPolicy: Always
+  volumes:
+    - name : cm-volume
+      configMap:
+        name: webapp-config-map
 status: {}

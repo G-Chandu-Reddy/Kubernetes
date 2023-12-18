@@ -1,0 +1,13 @@
+configmaps
+ - kubectl create configmap my-config --from-literal=key1=config1 --from-literal=key2=config2
+
+general
+ - kubectl get all -n champ
+ - kubectl get pods,deployments,services --all-namespaces
+
+
+
+linux
+ - alias k ="kubectl -n champ"
+ - echo "ai" | base64
+ - echo "YWk=" | base64 -d
