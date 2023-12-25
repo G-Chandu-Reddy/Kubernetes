@@ -7,7 +7,8 @@ general
  - k scale --replicas=2 rs/new-replica-set
  - k edit rs new-replica-set
  - kubectl delete pod <pod_name> --grace-period=0 --force
-
+   # every thing that comes after the -- are container args
+ - k run webapp-green --image=kodekloud/webapp-color --command  -- python ./app.py --color green
 
 linux
  - alias k ="kubectl -n champ"
