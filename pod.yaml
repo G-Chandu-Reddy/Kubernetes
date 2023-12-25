@@ -23,6 +23,10 @@ spec:
     - name: cm-volume
       mountPath: "/config"
       readOnly: true
+    securityContext:
+      runAsUser: 1001
+      capabilities:
+        add : ["SYS_TIME"]
   dnsPolicy: ClusterFirst
   restartPolicy: Always
   volumes:

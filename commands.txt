@@ -4,7 +4,9 @@ configmaps
 general
  - kubectl get all -n champ
  - kubectl get pods,deployments,services --all-namespaces
-
+ - k scale --replicas=2 rs/new-replica-set
+ - k edit rs new-replica-set
+ - kubectl delete pod <pod_name> --grace-period=0 --force
 
 
 linux

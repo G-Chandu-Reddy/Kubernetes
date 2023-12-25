@@ -1,0 +1,6 @@
+pods
+replicasets
+deployments
+namespaces
+configmaps
+secrets
