@@ -9,6 +9,8 @@ general
  - kubectl delete pod <pod_name> --grace-period=0 --force
    # every thing that comes after the -- are container args
  - k run webapp-green --image=kodekloud/webapp-color --command  -- python ./app.py --color green
+   # create the token for that particular service account
+ - k create token dashboard-sa
 
 linux
  - alias k ="kubectl -n champ"

@@ -10,7 +10,11 @@ spec:
   containers:
   - image: nginx
     name: nginx
-    resources: {}
+    resources:
+      requests:
+        memory: 20Mi
+      limits:
+        memory: 50Mi
     env:
     - name: name
       value: champ
