@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: image-processing-job
+spec:
+  parallelism: 2  # Number of pods running in parallel
+  completions: 4  # Number of pods that should successfully complete
+  backoffLimit: 3 # Max num of retries performed before next retry
+  template:
+    metadata:
+      name: image-processing-pod
+    spec:
+      containers:
+        - name: image-processor
+          image: your-image-processor:latest
+          command: ["process-images.sh"]  # Command to run within the container
+      restartPolicy: Never

@@ -3,20 +3,24 @@ kind: Deployment
 metadata:
   creationTimestamp: null
   labels:
-    app: nginix-deploy
-  name: nginix-deploy
+    app: champ-deploy
+  name: champ-deploy
   namespace: champ
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
-      app: nginix-deploy
-  strategy: {}
+      app: champ-deploy
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1
   template:
     metadata:
       creationTimestamp: null
       labels:
-        app: nginix-deploy
+        app: champ-deploy
     spec:
       containers:
       - image: nginx

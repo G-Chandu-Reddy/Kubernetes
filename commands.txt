@@ -11,8 +11,37 @@ general
  - k run webapp-green --image=kodekloud/webapp-color --command  -- python ./app.py --color green
    # create the token for that particular service account
  - k create token dashboard-sa
+ - k get pods my-pod --show-labels
+ - kubectl label nodes node-1 environment=production
+ - k set image deployment/frontend simple-webapp=kodekloud/webapp-color:v2
 
 linux
  - alias k ="kubectl -n champ"
  - echo "ai" | base64
  - echo "YWk=" | base64 -d
+
+corn
+
+* * * * *
+- - - - -
+| | | | |
+| | | | +----- Day of the week (0 - 7) (Sunday is both 0 and 7)
+| | | +------- Month (1 - 12)
+| | +--------- Day of the month (1 - 31)
+| +----------- Hour (0 - 23)
++------------- Minute (0 - 59)
+
+Each field allows specific values or ranges, and you can use wildcards, commas, dashes, and slashes to define the schedule:
+
+*:   Matches all possible values in that field.
+*/n: Represents intervals. For example, */5 in the minutes field means every 5 minutes.
+,:   Specifies a list of values. For example, 1,15,30 in the hours field means at 1 AM, 3 PM, and 6:30 PM.
+-:   Denotes a range of values. For example, 10-15 in the days field means from the 10th to the 15th day of the month.
+Specific numeric values: Simply put a number to denote a specific value.
+Here are a few examples:
+
+0 0 * * *: Run daily at midnight.
+*/15 * * * *: Run every 15 minutes.
+0 2 * * 1-5: Run at 2 AM from Monday to Friday.
+0 0 1 * *: Run at midnight on the first day of every month.
+0 8-17 * * MON-FRI: Run every hour between 8 AM and 5 PM on weekdays.

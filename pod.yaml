@@ -7,6 +7,11 @@ metadata:
   name: nginx
   namespace: champ
 spec:
+  tolerations:
+    - key: "techie"
+      operator: "Equal"
+      value: "champ"
+      effect: "NoSchedule"
   containers:
   - image: nginx
     name: nginx
